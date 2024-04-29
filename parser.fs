@@ -479,7 +479,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 58 "parser.fsy"
-                                                            Syntax.CALL (_1, _3) 
+                                                            Syntax.CALL(_1, _3) 
                    )
 # 58 "parser.fsy"
                  : Syntax.exp));

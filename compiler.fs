@@ -1,25 +1,30 @@
 module Compiler
 
-// Find the position of variable x on the runtime stack:
+// Find the position of variable x on the runtime stack
+// If the variable is not found, it throws an error indicating that the variable is unbound.
 let rec varpos x = function
     | []       -> failwith ("unbound: " + x)
-    | y :: env -> if x = y then 0 else 1 + varpos x env
+    | y :: env -> if x = y then 0 else 1 + varpos x env // Check current or recurse deeper
 
-// Adds new variables to the stack (aka: ectends the stack)
+// Adds new variables to the stack (aka: extends the stack)
 let extend env x = x :: env
 
 // Generating fresh labels:
+// ensures unique labels throughout the code
 let mutable labelCounter = 0
 let newLabel() =
     let this = labelCounter
     labelCounter <- this + 1;
     "L" + string(this)
 
-// Compile an expression:
+// Compile an expression recursively according to its type defined in the syntax
+// Each expression type corresponds to one or more assembly instructions
 let rec comp env = function
-    | Syntax.INT i           -> [Asm.IPUSH i]
-    | Syntax.VAR x           -> [Asm.ILOAD (varpos x env)]
-    | Syntax.BOOL b          -> if b then [Asm.IPUSH 1] else [Asm.IPUSH 0]
+    | Syntax.INT i           -> [Asm.IPUSH i]                               // Push integer literal onto the stack
+    | Syntax.VAR x           -> [Asm.ILOAD (varpos x env)]                  // Load variable from stack position
+    | Syntax.BOOL b          -> if b then [Asm.IPUSH 1] else [Asm.IPUSH 0]  // Push boolean as integer
+
+    // Arithmetic operations compile their operands and then apply the operation
     | Syntax.ADD (e1, e2)    -> comp env e1 @
                                 comp ("" :: env) e2 @
                                 [Asm.IADD]
@@ -29,16 +34,17 @@ let rec comp env = function
     | Syntax.SUB (e1, e2)    -> comp env e1 @
                                 comp ("" :: env) e2 @
                                 [Asm.ISUB]
-    | Syntax.EQ (e1, e2)     -> comp env e1 @
-                                comp ("" :: env) e2 @
-                                [Asm.IEQ]
     | Syntax.DIV (e1, e2)   ->  comp env e1 @
                                 comp ("" :: env) e2 @
                                 [Asm.IDIV]
     | Syntax.MOD (e1, e2)   ->  comp env e1 @
                                 comp ("" :: env) e2 @
                                 [Asm.IMOD]
-    // works
+
+    // Logical operations including handling of non-equality and greater/less comparisons
+    | Syntax.EQ (e1, e2)     -> comp env e1 @
+                                comp ("" :: env) e2 @
+                                [Asm.IEQ]
     | Syntax.NEQ (e1, e2)   ->  comp env e1 @
                                 comp ("" :: env) e2 @
                                 [Asm.IEQ] @
@@ -47,7 +53,6 @@ let rec comp env = function
     | Syntax.LT (e1, e2)    ->  comp env e1 @
                                 comp ("" :: env) e2 @
                                 [Asm.ILT]
-    // works
     | Syntax.LTE (e1, e2)   ->   // if less than is true, push 1; if it's false, check equality - if it's equal push 1, else push 0
                                 let labelTrue = newLabel()
                                 let labelFalse = newLabel()
@@ -71,8 +76,6 @@ let rec comp env = function
                                 [Asm.IJMP labelEnd]@
 
                                 [Asm.ILAB labelEnd]
-
-    // works
     | Syntax.GT (e1, e2)    ->  let labelLessOrEqual= newLabel()
                                 let labelNotLessThan = newLabel()
                                 let labelEnd = newLabel()
@@ -95,7 +98,6 @@ let rec comp env = function
                                 [Asm.IJMP labelEnd] @
 
                                 [Asm.ILAB labelEnd]
-    // works
     | Syntax.GTE (e1, e2)   ->  let labelLessThan= newLabel()
                                 let labelEnd= newLabel()
                                 comp env e1 @
@@ -108,7 +110,7 @@ let rec comp env = function
                                 [Asm.IPUSH 0]@
                                 [Asm.ILAB labelEnd]
 
-    // works
+    // Logical operators AND, OR, and UNARY_MINUS
     | Syntax.AND (e1, e2)   ->  let labelTrue = newLabel()
                                 let labelTrueSecond = newLabel()
                                 let labelFalse = newLabel()
@@ -131,10 +133,6 @@ let rec comp env = function
                                 [Asm.IJMP labelEnd]@
 
                                 [Asm.ILAB labelEnd] 
-
-
-                                                               
-    // works
     | Syntax.OR (e1, e2)     -> let labelTrue = newLabel()
                                 let labelEnd = newLabel()
                                 comp env e1 @                     
@@ -149,7 +147,6 @@ let rec comp env = function
                                 [Asm.IJMP labelEnd] @
 
                                 [Asm.ILAB labelEnd]
-    // works
     | Syntax.UNARY_MINUS e1  -> let labelTrue = newLabel()
                                 let labelEnd = newLabel()
                                 comp env e1 @
@@ -159,7 +156,7 @@ let rec comp env = function
                                 [Asm.ILAB labelTrue] @
                                 [Asm.IPUSH 0] @
                                 [Asm.ILAB labelEnd] 
-    // CHECK
+    // Function call handling
     | Syntax.CALL (f, [e1])  -> comp env e1 @ // Push (one) argument
                                 [Asm.ICALL f] @
                                 [Asm.ISWAP] @ // Remove (that) argument again
@@ -171,12 +168,11 @@ let rec comp env = function
                                 compileArgs args @
                                 [Asm.ICALL f] @
                                 List.replicate (List.length args) Asm.IPOP
-
+    // LET and IF expressions
     | Syntax.LET (x, e1, e2) -> comp env e1 @
                                 comp (extend env x) e2 @
                                 [Asm.ISWAP ] @
                                 [Asm.IPOP ]
-    // works
     | Syntax.IF (e1, e2, e3) -> let labelThen = newLabel()
                                 let labelEnd = newLabel()
                                 comp env e1 @
@@ -187,13 +183,11 @@ let rec comp env = function
                                 [Asm.ILAB labelThen] @
                                 comp ("" :: env) e2 @
 
-                                [Asm.ILAB labelEnd]
-                                
-    // CHECK
+                                [Asm.ILAB labelEnd]                        
+    // Input and output operations
     | Syntax.WRITE e1       ->  comp env e1 @
                                 [Asm.IWRITE] @
                                 [Asm.IPUSH 1]
-
     | Syntax.READ           ->  [Asm.IREAD] 
 
 // Compiling a program by first compiling the list of function

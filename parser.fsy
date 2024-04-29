@@ -55,7 +55,7 @@ exp       : INT                      { Syntax.INT $1 }
           | exp GT exp               { Syntax.GT($1, $3)  }
           | exp GTEQ exp             { Syntax.GTE($1, $3) }
           | LPAR exp RPAR            { $2 }
-          | NAME LPAR exps RPAR      { Syntax.CALL ($1, $3) }
+          | NAME LPAR exps RPAR      { Syntax.CALL($1, $3) }
           | exp ANDAND exp           { Syntax.AND($1, $3) }
           | exp BARBAR exp           { Syntax.OR($1, $3) }
           | LET NAME EQ exp IN exp   { Syntax.LET($2, $4, $6) }

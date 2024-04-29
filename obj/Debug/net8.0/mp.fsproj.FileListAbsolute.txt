@@ -58,3 +58,4 @@
 /Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/obj/Debug/net8.0/mp.pdb
 /Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/obj/Debug/net8.0/mp.genruntimeconfig.cache
 /Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/obj/Debug/net8.0/ref/mp.dll
+/Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/obj/Debug/net8.0/mp.sourcelink.json
