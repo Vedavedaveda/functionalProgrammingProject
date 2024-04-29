@@ -1,0 +1,45 @@
+The files in this directory serve as a starting point for the solution
+to Part A in the assignment.  You (probably) only need to modify the
+files
+
+    lexer.fsl
+    parser.fsy
+    compiler.fs
+    syntax.fs
+
+If you modify lexer.fsl or parser.fsy, then (in a terminal; not from
+the F# REPL) type
+
+    $ dotnet build
+
+In order to test and run your solution, start F#, load everything, and
+then compile using Compiler.compProg:
+
+    $ dotnet fsi
+    > #load "main.fsx";;
+    > let ast = Parse.fromString "1 + 2";;
+    > let ins = Compiler.compProg ast;;
+    > let code = Asm.asm ins;;
+    > VM.exec code;;
+
+or use Main.comps (to compile and assemble a program from a string) or
+Main.compf (to compile and assemble a program from a file).
+
+    $ dotnet fsi
+    > #load "main.fsx";;
+    >let code = Main.comps "func fac(n, r) = if n == 0 then r else fac(n - 1, r * n); fac(5, 1)";;
+     
+    > VM.exec code;;
+
+The following are not implemented.  It is your task to do it:
+
+    * In syntax.fs: ASTs for the operators && and || and unary minus
+      (i.e., negation) and for let, if, read, and write.
+
+    * In parser.fsy: Grammar rules for the operators && and || and
+      unary minus (i.e., negation) and for let, if, read, and write.
+
+    * In compiler.fs: Many operators, let, if, and function calls with
+      other than 1 argument; function definition with other than 1
+      argument.
+    
