@@ -143,7 +143,7 @@ let evalProg (funcs, e) =
         | _ -> failwith "Not implemented"
     eval [] e
 
-open Interpreter
+//open Interpreter
 evalProg([], ADD (INT 3, INT 3));;
 evalProg([], SUB (INT 9, INT 3));;
 evalProg([], MUL (INT 3, INT 3));;

@@ -59,3 +59,34 @@
 /Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/obj/Debug/net8.0/mp.genruntimeconfig.cache
 /Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/obj/Debug/net8.0/ref/mp.dll
 /Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/obj/Debug/net8.0/mp.sourcelink.json
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/mp
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/mp.deps.json
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/mp.runtimeconfig.json
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/mp.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/mp.pdb
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/FSharp.Core.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/FsLexYacc.Runtime.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/cs/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/de/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/es/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/fr/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/it/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/ja/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/ko/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/pl/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/pt-BR/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/ru/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/tr/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/zh-Hans/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/bin/Debug/net8.0/zh-Hant/FSharp.Core.resources.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/mp.fsproj.AssemblyReference.cache
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/mp.AssemblyInfoInputs.cache
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/mp.AssemblyInfo.fs
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/mp.fsproj.CoreCompileInputs.cache
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/mp.sourcelink.json
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/mp.fsproj.Up2Date
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/mp.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/refint/mp.dll
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/mp.pdb
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/mp.genruntimeconfig.cache
+/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/Debug/net8.0/ref/mp.dll

@@ -161,11 +161,18 @@ let rec comp env = function
                                 [Asm.ILAB labelTrue] @
                                 [Asm.IPUSH 0] @
                                 [Asm.ILAB labelEnd] 
-    // Function call handling
-    | Syntax.CALL (f, [e1])  -> comp env e1 @       // Push (one) argument
-                                [Asm.ICALL f] @
-                                [Asm.ISWAP] @       // Remove (that) argument again
+    // Function call handling - push all arguments on the stack, after calling the callee remove them and return the result
+    | Syntax.CALL (f, args)  -> let mutable compiledArgs = []
+                                let argsLength = args.Length
+                                for i in args do
+                                    let compiledArg = comp env i
+                                    compiledArgs <- List.concat [compiledArg; compiledArgs]
+                                compiledArgs @
+                                [Asm.ICALL f] @ 
+                                List.concat [for _ in 1..argsLength-1 -> [Asm.ISWAP; Asm.IPOP]] @
+                                [Asm.ISWAP]@
                                 [Asm.IPOP]
+                     
     // LET and IF expressions
     | Syntax.LET (x, e1, e2) -> comp env e1 @
                                 comp (extend env x) e2 @
@@ -193,12 +200,12 @@ let rec compProg = function
     | ([], e1) ->
         comp [] e1 @
         [Asm.IHALT]
-        
-    | ((f, ([x1], e)) :: funcs, e1) ->
+
+    | ((f, (params, e)) :: funcs, e1) ->
+        let env = "" :: params // Include return address and parameters
         compProg (funcs, e1) @
         [Asm.ILAB f] @
-        comp [""; x1] e @ // Expect return address and (one) variable (x) on stack
-        [Asm.ISWAP] @
+        comp env e @
+        [Asm.ISWAP]@
         [Asm.IRETN]
-   
 

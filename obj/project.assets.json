@@ -224,19 +224,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/vedabradley/.nuget/packages/": {}
+    "/Users/aleksandrawozniak/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/mp.fsproj",
+      "projectUniqueName": "/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/mp.fsproj",
       "projectName": "mp",
-      "projectPath": "/Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/mp.fsproj",
-      "packagesPath": "/Users/vedabradley/.nuget/packages/",
-      "outputPath": "/Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/obj/",
+      "projectPath": "/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/mp.fsproj",
+      "packagesPath": "/Users/aleksandrawozniak/.nuget/packages/",
+      "outputPath": "/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/vedabradley/.nuget/NuGet/NuGet.Config"
+        "/Users/aleksandrawozniak/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

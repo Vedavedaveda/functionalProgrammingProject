@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ACJyECpoDEh4fyq7nPUQm3K2oZnzY7L9kOGEzkwlxQfdS2+nPI66ZUaDknfThdLfUYSkprSgusSeC/JK1ZOsiQ==",
+  "dgSpecHash": "sBYeN7+9nh0fMnKrmkzcKGvp+kXPSTsoEcPtO1txfKZsvjixioNeE9Ec7bgW3QzBqadlc+1lReqWOTxd3+UvBQ==",
   "success": true,
-  "projectFilePath": "/Users/vedabradley/Documents/University/RUC/Semester 6/Functional Programming/mp3/mp.fsproj",
+  "projectFilePath": "/Users/aleksandrawozniak/Desktop/Functional Programming/project/functionalProgrammingProject/mp.fsproj",
   "expectedPackageFiles": [
-    "/Users/vedabradley/.nuget/packages/fsharp.core/8.0.200/fsharp.core.8.0.200.nupkg.sha512",
-    "/Users/vedabradley/.nuget/packages/fslexyacc/10.2.0/fslexyacc.10.2.0.nupkg.sha512",
-    "/Users/vedabradley/.nuget/packages/fslexyacc.runtime/10.2.0/fslexyacc.runtime.10.2.0.nupkg.sha512"
+    "/Users/aleksandrawozniak/.nuget/packages/fsharp.core/8.0.200/fsharp.core.8.0.200.nupkg.sha512",
+    "/Users/aleksandrawozniak/.nuget/packages/fslexyacc/10.2.0/fslexyacc.10.2.0.nupkg.sha512",
+    "/Users/aleksandrawozniak/.nuget/packages/fslexyacc.runtime/10.2.0/fslexyacc.runtime.10.2.0.nupkg.sha512"
   ],
   "logs": []
 }

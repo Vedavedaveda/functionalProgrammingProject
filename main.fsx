@@ -1,7 +1,7 @@
 #r "nuget: FsLexYacc.Runtime, 10.2.0"
 #r "vm.dll"
 #r "asm.dll"
-#load "syntax.fs" "parser.fs" "lexer.fs" "parse.fs" "compiler.fs" "interpreter.fs"
+#load "syntax.fs" "parser.fs" "lexer.fs" "parse.fs" "compiler.fs" //"interpreter.fs"
 
 // Add more F# code here
 
@@ -107,12 +107,12 @@ let weird_tests = [
     "func pow(x, n) = if n == 0 then 1 else if n % 2 == 0 then (let v = pow(x, n / 2) in v * v) else x * pow(x, n - 1); pow(2, 13)"
 ]
 
-for t in tests do
-    let code = Main.comps t
-    let result: int = VM.exec code
-    System.Console.WriteLine("Input: {0}, Output: {1}" , t, result);;
+//for t in tests do
+   // let code = comps t
+    //let result: int = VM.exec code
+   // System.Console.WriteLine("Input: {0}, Output: {1}" , t, result);;
 
 
-//let code = Main.comps "";;
+//let code = Main.comps  "func f(x,y,z) = (x+z) * y; f(1,5,2)";;
 //VM.exec code;;
 // #load "main.fsx";;
