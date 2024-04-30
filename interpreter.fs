@@ -204,3 +204,11 @@ evalProg ([], OR(BOOL false, BOOL false));;
 evalProg ([], IF (BOOL false, INT 1, INT 5));;
 evalProg ([], IF (BOOL true, INT 1, INT 5));;
 //evalProg ([], IF (INT 5, BOOL true, INT 5));;
+
+
+let testFunctionCall() =
+    let funcs = [("increment", ("n", ADD(VAR "n", INT 1)))]
+    let prog = CALL("increment", INT 5)
+    assert(evalProg(funcs, prog) = 6)
+
+// #load "interpreter.fs";;
