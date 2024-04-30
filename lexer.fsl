@@ -28,7 +28,7 @@ rule tokenstream = parse
   | "then"     { Parser.THEN }
   | "else"     { Parser.ELSE }
   | "write"    { Parser.WRITE }
-  | "read"     { Parser.READ } 
+  | "read"     { Parser.READ }                                      // we added the read and write tokens
   | name       { Parser.NAME(LexBuffer<_>.LexemeString lexbuf) }
 
   | "&&"       { Parser.ANDAND }

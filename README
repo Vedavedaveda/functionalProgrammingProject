@@ -27,8 +27,7 @@ Main.compf (to compile and assemble a program from a file).
 
     $ dotnet fsi
     > #load "main.fsx";;
-    >let code = Main.comps "func fac(n, r) = if n == 0 then r else fac(n - 1, r * n); fac(5, 1)";;
-     
+    > let code = Main.comps "func fac(n, r) = if n == 0 then r else fac(n - 1, r * n); fac(5, 1)";;
     > VM.exec code;;
 
 The following are not implemented.  It is your task to do it:
